@@ -1,0 +1,15 @@
+1.Software You Need Installed:
+ •	Python 3.8+
+ •	PostgreSQL (with a database called company_db)
+ •	Git
+ •	dbt-core
+2. Create Virtual Environment (Recommended)
+3. Install Dependencies
+4. Configure PostgreSQL
+5. Create Database Tables
+6. Run the ETL Pipeline
+7. Initialize dbt (if not done yet)
+8. Run dbt Models
+9. Run Entity Matching
+
+

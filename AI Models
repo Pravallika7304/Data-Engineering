@@ -1,0 +1,5 @@
+Semantic matching    :	sentence-transformers (SBERT)	
+Entity recognition   :   spacy, BERT	
+Clustering/grouping  :	KMeans, DBSCAN	
+Intelligent matching :	LogisticRegression / SVM	
+

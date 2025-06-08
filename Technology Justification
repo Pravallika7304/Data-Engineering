@@ -1,0 +1,19 @@
+Technology Justification for Each Component:-
+
+Data Extraction	Python :	Python provides excellent libraries for HTTP requests, HTML parsing, and file handling (e.g., requests, beautifulsoup4).
+
+Data Source: Web Data	Common Crawl	Free, large-scale web corpus suitable for extracting company names and business info.
+
+Data Source: Government Data	Australian Business Register (ABR)	Official source of structured business data. Ensures accurate and authoritative information.
+
+Data Storage	PostgreSQL	Reliable, open-source relational database. Great for structured data, supports SQL and indexing for faster queries.
+
+Schema Setup	Python + psycopg2	Programmatic and repeatable setup of tables in PostgreSQL using Python.
+
+Data Transformation	dbt (Data Build Tool)	dbt handles data cleaning and transformation through modular SQL models. Enables testing, documentation, and CI/CD.
+
+Entity Matching	Python + fuzzywuzzy / rapidfuzz	Python offers flexible string-matching tools that support fuzzy comparisons to find approximate matches between datasets.
+
+Environment Management	requirements.txt	Lists all dependencies to ensure reproducibility and portability of the Python environment.
+Orchestration / CLI	Command Prompt	Simple and effective for running scripts and dbt models during local development.
+

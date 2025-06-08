@@ -1,0 +1,45 @@
+              ┌────────────────────┐
+              │   Common Crawl     │
+              └────────┬───────────┘
+                       │
+                       ▼
+               [ETL Python Script]
+              Extract + Parse HTML
+              ↓ Normalize Companies
+                       │
+                       ▼
+        ┌──────────────┐   ┌────────────┐
+        │raw_commoncrawl│  │cleaned_commoncrawl│
+        └──────────────┘   └────────────┘
+                             ▲
+                             │
+             ┌────────────┐  │
+             │ DBT Model  │──┘
+
+              ┌────────────────────┐
+              │ Australian Business│
+              │     Register (ABR) │
+              └────────┬───────────┘
+                       │
+                       ▼
+               [ETL Python Script]
+              Extract + Normalize
+                       │
+                       ▼
+        ┌────────────┐   ┌────────────┐
+        │raw_abr     │   │cleaned_abr │
+        └────────────┘   └────────────┘
+                             ▲
+                             │
+             ┌────────────┐  │
+             │ DBT Model  │──┘
+
+                       ▼
+         ┌────────────────────────────┐
+         │ Entity Matching (Python)   │
+         │   Fuzzy Matching, Scoring  │
+         └────────────┬───────────────┘
+                      ▼
+            ┌─────────────────────┐
+            │  matched_entities   │
+            └─────────────────────┘

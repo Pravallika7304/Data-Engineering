@@ -1,0 +1,59 @@
+1. raw_commoncrawl
+sql
+CopyEdit
+CREATE TABLE raw_commoncrawl (
+    id SERIAL PRIMARY KEY,
+    company_name TEXT,
+    domain TEXT,
+    website_url TEXT,
+    country TEXT,
+    crawl_date DATE,
+    raw_text TEXT
+);
+________________________________________
+ 2. raw_abr
+sql
+CopyEdit
+CREATE TABLE raw_abr (
+    abn VARCHAR(20) PRIMARY KEY,
+    entity_name TEXT,
+    business_name TEXT,
+    status TEXT,
+    state TEXT,
+    postcode TEXT,
+    registration_date DATE
+);
+________________________________________
+ 3. cleaned_commoncrawl
+sql
+CopyEdit
+CREATE TABLE cleaned_commoncrawl (
+    id SERIAL PRIMARY KEY,
+    normalized_name TEXT,
+    domain TEXT,
+    country TEXT
+);
+________________________________________
+ 4. cleaned_abr
+sql
+CopyEdit
+CREATE TABLE cleaned_abr (
+    abn VARCHAR(20) PRIMARY KEY,
+    normalized_name TEXT,
+    state TEXT,
+    postcode TEXT
+);
+________________________________________
+5. matched_entities
+sql
+CopyEdit
+CREATE TABLE matched_entities (
+    match_id SERIAL PRIMARY KEY,
+    abn VARCHAR(20),
+    commoncrawl_id INTEGER,
+    match_score FLOAT,
+    matched_on TEXT,
+    FOREIGN KEY (abn) REFERENCES cleaned_abr(abn),
+    FOREIGN KEY (commoncrawl_id) REFERENCES cleaned_commoncrawl(id)
+);
+
